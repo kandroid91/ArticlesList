@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Articles</string>
+    <string name="refreshing_articles_in">Refreshing articles in</string>
+    <string name="no_internet_message">Kindly check internet connectio and click on refresh button</string>
+</resources>
