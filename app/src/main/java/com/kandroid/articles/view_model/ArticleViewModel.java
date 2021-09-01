@@ -32,7 +32,7 @@ public class ArticleViewModel extends AndroidViewModel {
         if (timerMutableLiveData == null) {
             //start the timer when the very first time counter Mutable data is initialised i.e. at the time of screen launch
             timerMutableLiveData = new MutableLiveData<>();
-            startTimer(10000);
+            startTimer(60000);
         }
         return timerMutableLiveData;
     }
