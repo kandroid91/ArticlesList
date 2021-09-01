@@ -45,7 +45,7 @@ public class ArticlesActivity extends AppCompatActivity {
     }
 
     private void setEventListener() {
-        viewBinding.faResetTimer.setOnClickListener(new View.OnClickListener() {
+        viewBinding.fabResetTimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //start timer
@@ -85,6 +85,7 @@ public class ArticlesActivity extends AppCompatActivity {
             public void onChanged(String s) {
                 //call api when timer is finished other wise update timer value to user
                 if (s.equals("00:00")) {
+                    viewBinding.fabResetTimer.setEnabled(true);
                     //check internet connection before making network call
                     if (CommonFunc.hasInternetConnection(ArticlesActivity.this)) {
                         viewBinding.progressBar.setVisibility(View.VISIBLE);
@@ -98,6 +99,7 @@ public class ArticlesActivity extends AppCompatActivity {
                     viewBinding.tvTimerMessage.setVisibility(View.GONE);
                     viewBinding.tvTimer.setVisibility(View.GONE);
                 } else {
+                    viewBinding.fabResetTimer.setEnabled(false);
                     viewBinding.tvTimerMessage.setVisibility(View.VISIBLE);
                     viewBinding.tvTimer.setVisibility(View.VISIBLE);
                     viewBinding.tvErrorMessage.setVisibility(View.GONE);
