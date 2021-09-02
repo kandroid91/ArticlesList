@@ -49,7 +49,7 @@ public class ArticlesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //start timer
-                articleViewModel.startTimer(5000);
+                articleViewModel.startTimer(60000);
             }
         });
     }
