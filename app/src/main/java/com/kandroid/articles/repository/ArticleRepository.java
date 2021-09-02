@@ -32,6 +32,8 @@ public class ArticleRepository {
                 Log.d(TAG, new Gson().toJson(response.body()));
                 if (response.body() != null) {
                     articleResponseMutableLiveData.setValue(response.body());
+                } else {
+                    articleResponseMutableLiveData.setValue(new ArticleResponse());
                 }
             }
 
@@ -39,6 +41,7 @@ public class ArticleRepository {
             public void onFailure(@NonNull Call<ArticleResponse> call, @NonNull Throwable t) {
                 Log.d(TAG, "API failed");
                 Log.d(TAG, t.getMessage());
+                articleResponseMutableLiveData.setValue(new ArticleResponse());
             }
         });
         return articleResponseMutableLiveData;
