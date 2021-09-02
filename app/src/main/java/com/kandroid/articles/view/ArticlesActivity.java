@@ -49,7 +49,7 @@ public class ArticlesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //start timer
-                articleViewModel.startTimer(60000);
+                articleViewModel.startTimer(5000);
             }
         });
     }
@@ -73,6 +73,9 @@ public class ArticlesActivity extends AppCompatActivity {
                         articleArrayList.addAll(articleResponse.getResult().getArticle());
                         articleAdapter.notifyItemChanged(0);
                         viewBinding.rvArticles.setVisibility(View.VISIBLE);
+                    } else {
+                        viewBinding.tvErrorMessage.setVisibility(View.VISIBLE);
+                        viewBinding.tvErrorMessage.setText(getResources().getString(R.string.no_article));
                     }
                 }
             }
@@ -91,8 +94,7 @@ public class ArticlesActivity extends AppCompatActivity {
                         viewBinding.progressBar.setVisibility(View.VISIBLE);
                         viewBinding.tvErrorMessage.setVisibility(View.GONE);
                         getArticleListing();
-                    }
-                    else{
+                    } else {
                         viewBinding.tvErrorMessage.setText(R.string.no_internet_message);
                         viewBinding.tvErrorMessage.setVisibility(View.VISIBLE);
                     }
